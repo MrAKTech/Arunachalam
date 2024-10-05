@@ -40,7 +40,7 @@
   <section class="about" id="about">
     <div class="about-content">
       <div class="profile-picture">
-        <img src="images/MrAK.jpg" alt="Arunachalam">
+        <img src="images/Arunachalam.jpg" alt="Arunachalam">
       </div>
       <div class="about-text">
         <h2>About Me</h2>
