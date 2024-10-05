@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$success = false;
+if (isset($_SESSION['success']) && $_SESSION['success']) {
+    $success = true;
+    unset($_SESSION['success']); // Clear the session variable
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,18 +69,6 @@
         </div>
         <div class="skill">
           <div class="skill-icon">
-            <img src="icons/java.png" alt="Java">
-          </div>
-          <h3>Java</h3>
-        </div>
-        <div class="skill">
-          <div class="skill-icon">
-            <img src="icons/c-.png" alt="C">
-          </div>
-          <h3>C Programming</h3>
-        </div>
-        <div class="skill">
-          <div class="skill-icon">
             <img src="icons/html-5.png" alt="HTML">
           </div>
           <h3>HTML</h3>
@@ -120,7 +116,7 @@
         <div class="project">
           <img src="images/cseproject.png" alt="CSE Project">
           <div class="project-info">
-            <h3>AI Based Autofilter Telegram Bot</h3>
+            <h3>AI Based Auto Filter Telegram Bot</h3>
             <p>Automated File Filtering System: Developed and maintained a bot capable of automatic file filtering, enabling users to efficiently manage and organize files within a chat environment.<br>
 Premium Membership Management: Integrated a membership management system to handle premium subscriptions, providing custom features and tailored experiences for users with different access levels.<br>
 Advanced Bot Features: Implemented various functionalities such as IMDB templates, file deletion modes, streaming support, and custom URL shorteners to enhance user interaction and bot capabilities.<br>
@@ -145,12 +141,9 @@ Technologies used : Python, Docker, Flask, HTML/CSS, Heroku</p>
     <div class="contact-content">
       <h2>Get in Touch</h2>
       <p>If you have any questions or want to discuss a project, feel free to reach out!</p>
-      <?php
-      if (isset($_GET['success']) && $_GET['success'] == 'true') {
-        echo '<p class="success-message">Your message was successfully submitted!</p>';
-      }
-    ?>
-    <?php $_POST['success'] = false; ?>
+      <?php if ($success): ?>
+      <p class="success-message">Your message was successfully submitted!</p>
+      <?php endif; ?>
       <form class="contact-form" action="php/submitform_php.php" method="post">
         <div class="form-group">
           <label for="name">Name</label>
@@ -189,7 +182,7 @@ Technologies used : Python, Docker, Flask, HTML/CSS, Heroku</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Ganesh P. All Rights Reserved.</p>
+      <p>&copy; 2024 Arunachalam. All Rights Reserved.</p>
     </div>
   </footer>
 
